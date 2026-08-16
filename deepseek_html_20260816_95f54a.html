@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Investors Ultra · Premium Laptop Investments Uganda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', 'Inter', sans-serif;
+            background: #0b1f2a;
+            color: #f0f5f2;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 1rem;
+            background-image: radial-gradient(circle at 10% 20%, #0f2e3a 0%, #071319 90%);
+        }
+
+        .main-app {
+            width: 100%;
+            max-width: 1400px;
+            background: rgba(15, 35, 45, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 56px;
+            padding: 2rem 2.5rem 2rem;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-graphic {
+            background: linear-gradient(145deg, #f5b942, #d18d2c);
+            width: 70px;
+            height: 70px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #0b1f2a;
+            box-shadow: 0 15px 35px rgba(245, 185, 66, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #d4a54a;
+        }
+
+        .logo-graphic::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -30%;
+            width: 60%;
+            height: 60%;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: rotate(30deg);
+        }
+
+        .uganda-emblem {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 1.2rem;
+            color: #0b1f2a;
+        }
+
+        .logo-text h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #f7e8c8, #d4a54a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #9ab8ac;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-login, .btn-register {
+            background: #f5b942;
+            color: #0b1f2a;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(245,185,66,0.3);
+        }
+        .btn-login:hover, .btn-register:hover {
+            background: #ffd966;
+            transform: translateY(-2px);
+        }
+
+        .btn-register {
+            background: #2ecc71;
+            box-shadow: 0 10px 20px rgba(46,204,113,0.3);
+        }
+        .btn-register:hover {
+            background: #27ae60;
+        }
+
+        .user-chip {
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #d4e8dc;
+            display: none;
+            backdrop-filter: blur(6px);
+        }
+
+        .badge-ug {
+            background: rgba(255,255,255,0.08);
+            color: #e0d6b0;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .page {
+            display: none;
+            animation: fadeSlide 0.4s ease;
+        }
+        .page.active { display: block; }
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 1.5rem 0 1.2rem;
+            color: #f5e7c8;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section-card {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(15px);
+            border-radius: 36px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .laptop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+
+        .laptop-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .laptop-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(245,185,66,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        .laptop-image {
+            background: #0d242e;
+            border-radius: 22px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .laptop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            filter: drop-shadow(0 14px 18px rgba(0,0,0,0.6));
+        }
+        .laptop-name {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #fff7e0;
+        }
+        .laptop-spec {
+            font-size: 0.85rem;
+            color: #a0bbb0;
+        }
+        .price-start {
+            background: #f5b942;
+            color: #0b1f2a;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-weight: 800;
+            align-self: flex-start;
+            margin: 0.6rem 0;
+        }
+        .btn-buy {
+            background: #f5b942;
+            color: #0b1f2a;
+            border: none;
+            padding: 1rem;
+            border-radius: 60px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: auto;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+        .btn-buy:hover { background: #ffd966; }
+
+        .holdings-item {
+            background: rgba(255,255,255,0.04);
+            padding: 1rem 1.5rem;
+            border-radius: 24px;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #f5b942;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .deposit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        .money-card {
+            background: #102a34;
+            border-radius: 26px;
+            padding: 1.8rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .referral-input {
+            background: #0d242e;
+            border-radius: 60px;
+            padding: 0.6rem 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .btn-copy-link {
+            background: #f5b942;
+            color: #0b1f2a;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .footer-lux {
+            text-align: center;
+            color: #8ba79b;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            .navbar { flex-direction: column; align-items: flex-start; }
+            .logo-graphic { width: 60px; height: 60px; font-size: 2rem; }
+            .logo-text h2 { font-size: 1.8rem; }
+        }
+
+        .balance-card {
+            background: linear-gradient(145deg, #f5b942, #d18d2c);
+            border-radius: 30px;
+            padding: 2rem;
+            color: #0b1f2a;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 20px 40px rgba(245,185,66,0.25);
+        }
+        .balance-amount {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .daily-income {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .login-form, .register-form, .withdraw-form {
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            padding: 2.5rem;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        .login-input, .register-input, .withdraw-input {
+            width: 100%;
+            background: #0d242e;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 40px;
+            padding: 1rem 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .btn-login-submit, .btn-register-submit, .btn-withdraw-submit {
+            background: #f5b942;
+            color: #0b1f2a;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            font-weight: 800;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .btn-register-submit {
+            background: #2ecc71;
+        }
+        .btn-withdraw-submit {
+            background: #e74c3c;
+        }
+        .btn-login-submit:hover { background: #ffd966; }
+        .btn-register-submit:hover { background: #27ae60; }
+        .btn-withdraw-submit:hover { background: #c0392b; }
+
+        .history-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d4e8dc;
+        }
+        .history-text strong { color: #f5b942; }
+
+        .hut8-badge {
+            background: rgba(46,204,113,0.2);
+            border: 1px solid rgba(46,204,113,0.4);
+            padding: 0.6rem 1.4rem;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #2ecc71;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-app">
+        <div class="navbar">
+            <div class="brand-logo">
+                <div class="logo-graphic">
+                    <i class="fas fa-crown"></i>
+                    <span class="uganda-emblem">🦅</span>
+                </div>
+                <div class="logo-text">
+                    <h2>Investors Ultra</h2>
+                    <span>UGANDA · EST. 2021</span>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <span class="badge-ug"><i class="fas fa-map-pin"></i> KAMPALA</span>
+                <button class="btn-login" id="loginBtn"><i class="fas fa-user-circle"></i> Login</button>
+                <button class="btn-register" id="registerBtn"><i class="fas fa-user-plus"></i> Register</button>
+                <div class="user-chip" id="userChip"><i class="fas fa-check-circle"></i> <span id="userNameDisplay">Guest</span></div>
+            </div>
+        </div>
+
+        <!-- HOME PAGE -->
+        <div class="page active" id="homePage">
+            <div class="section-card" style="background: linear-gradient(145deg, #0e2e38, #092029); border:1px solid rgba(255,255,255,0.1);">
+                <h1 style="font-size:2.8rem; font-weight:800; color:#f5e7c8;">Premium laptop investments</h1>
+                <p style="font-size:1.3rem; color:#b8cfc4;">From <strong style="color:#f5b942;">UGX 5,000</strong> · 24h withdrawals · Daily income</p>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+                    <span class="hut8-badge"><i class="fas fa-server"></i> HUT 8 Mining</span>
+                    <span style="background:rgba(245,185,66,0.2); padding:0.6rem 1.4rem; border-radius:60px; font-weight:700;">⚡ 24h payout</span>
+                    <span style="background:rgba(245,185,66,0.2); padding:0.6rem 1.4rem; border-radius:60px; font-weight:700;">📈 Daily income</span>
+                    <span style="background:rgba(245,185,66,0.2); padding:0.6rem 1.4rem; border-radius:60px; font-weight:700;">🎁 5% referral</span>
+                    <span style="background:rgba(245,185,66,0.2); padding:0.6rem 1.4rem; border-radius:60px; font-weight:700;">💳 Min withdraw UGX 10,000</span>
+                </div>
+            </div>
+            <div class="page-title"><i class="fas fa-laptop"></i> Featured machines</div>
+            <div class="laptop-grid" id="homeLaptopGrid"></div>
+        </div>
+
+        <!-- INVEST PAGE -->
+        <div class="page" id="investPage">
+            <div class="page-title"><i class="fas fa-store"></i> All laptops & machines</div>
+            <div class="laptop-grid" id="allLaptopGrid"></div>
+        </div>
+
+        <!-- PORTFOLIO PAGE -->
+        <div class="page" id="portfolioPage">
+            <div class="page-title"><i class="fas fa-briefcase"></i> Your purchased machines</div>
+            <div class="section-card">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+                    <h3>Total invested</h3>
+                    <span id="totalInvestDisplay" style="background:#f5b942; color:#0b1f2a; padding:0.6rem 1.4rem; border-radius:40px; font-weight:800;">UGX 0</span>
+                </div>
+                <div id="holdingsList" style="margin-top:1.5rem;">No purchases yet.</div>
+                <div style="margin-top:1.5rem; background:rgba(245,185,66,0.1); padding:1rem; border-radius:20px;">
+                    <strong>Projected profit:</strong> <span id="projectedProfit" style="font-weight:800; color:#f5b942;">UGX 0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEPOSIT & WITHDRAW PAGE -->
+        <div class="page" id="depositPage">
+            <div class="page-title"><i class="fas fa-mobile-alt"></i> Mobile money deposit & withdraw</div>
+            <div class="section-card">
+                <div class="deposit-grid">
+                    <div class="money-card">
+                        <i class="fas fa-phone" style="font-size:2.5rem; color:#f5b942;"></i>
+                        <h4>MTN Mobile Money</h4>
+                        <p style="font-weight:800; font-size:1.8rem;">0778727290</p>
+                        <p>Investors Ultra</p>
+                    </div>
+                    <div class="money-card">
+                        <i class="fas fa-phone" style="font-size:2.5rem; color:#f5b942;"></i>
+                        <h4>Airtel Money</h4>
+                        <p style="font-weight:800; font-size:1.8rem;">0750703195</p>
+                        <p>Investors Ultra</p>
+                    </div>
+                </div>
+                <div style="background:rgba(245,185,66,0.1); padding:1rem; border-radius:20px; margin-top:1.5rem;">
+                    <i class="fas fa-clock"></i> Withdrawals processed within <strong>24 hours</strong>. Fee: <strong>10%</strong> · Minimum: <strong>UGX 10,000</strong>
+                </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-top:1.5rem;">
+                    <div>
+                        <h4 style="margin-bottom:0.5rem;">📋 Deposit amount</h4>
+                        <input type="number" id="depositAmount" placeholder="Enter amount (UGX)" style="width:100%; background:#0d242e; border:1px solid rgba(255,255,255,0.1); border-radius:40px; padding:1rem; color:white; margin-bottom:0.5rem;">
+                        <button id="depositSubmitBtn" style="background:#f5b942; color:#0b1f2a; border:none; padding:1rem 2rem; border-radius:60px; font-weight:800; cursor:pointer; width:100%;">Deposit funds</button>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom:0.5rem;">💸 Withdraw amount</h4>
+                        <input type="number" id="withdrawAmount" placeholder="Min UGX 10,000" style="width:100%; background:#0d242e; border:1px solid rgba(255,255,255,0.1); border-radius:40px; padding:1rem; color:white; margin-bottom:0.5rem;">
+                        <button id="withdrawSubmitBtn" style="background:#e74c3c; color:white; border:none; padding:1rem 2rem; border-radius:60px; font-weight:800; cursor:pointer; width:100%;">Withdraw funds</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REFERRAL PAGE -->
+        <div class="page" id="referralPage">
+            <div class="page-title"><i class="fas fa-gift"></i> Referral & invite</div>
+            <div class="section-card">
+                <h3>Earn 5% bonus</h3>
+                <p style="opacity:0.8;">Share your link, get 5% of your friends' first deposit.</p>
+                <div class="referral-input" style="margin-top:1.5rem;">
+                    <span id="inviteLink" style="flex:1; overflow:hidden;">https://investorsultra.ug/ref/U-9X2K</span>
+                    <button class="btn-copy-link" id="copyInviteBtn"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HISTORY PAGE -->
+        <div class="page" id="historyPage">
+            <div class="page-title"><i class="fas fa-history"></i> Our story</div>
+            <div class="section-card">
+                <h2 style="color:#f5b942; margin-bottom:1.5rem;">Investors Ultra · A legacy of trust</h2>
+                <div class="history-text">
+                    <p><strong>Investors Ultra</strong> was founded in <strong>Kampala, Uganda</strong> in <strong>2021</strong> with a single mission: to democratize access to premium technology investments for everyday Ugandans. What began as a small initiative with three laptops and a vision has grown into one of Uganda's most trusted digital investment platforms.</p>
+                    <br>
+                    <p>Our founders, <strong>Daniel Okello</strong> and <strong>Grace Nakato</strong>, recognized that many hardworking individuals wanted to participate in the growing tech economy but lacked the capital to purchase high-end equipment. By allowing investors to buy shares in premium laptops starting from just <strong>UGX 5,000</strong>, we opened the doors to a new world of financial opportunity.</p>
+                    <br>
+                    <p>Today, <strong>Investors Ultra</strong> manages a portfolio of over <strong>2,500 premium machines</strong> and has paid out more than <strong>UGX 1.2 billion</strong> in returns to our investors. Our commitment to transparency, daily income distributions, and 24-hour withdrawal processing has earned us the trust of thousands across the country.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGIN PAGE -->
+        <div class="page" id="loginPage">
+            <div class="page-title"><i class="fas fa-lock"></i> Login to your account</div>
+            <div class="login-form">
+                <input type="text" id="loginPhone" placeholder="Phone number (e.g. 0778727290)" class="login-input">
+                <input type="password" id="loginPassword" placeholder="Password" class="login-input">
+                <button id="loginSubmitBtn" class="btn-login-submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <p style="margin-top:1rem; text-align:center; opacity:0.7;">Login with your registered phone number</p>
+            </div>
+        </div>
+
+        <!-- REGISTER PAGE -->
+        <div class="page" id="registerPage">
+            <div class="page-title"><i class="fas fa-user-plus"></i> Register new account</div>
+            <div class="register-form">
+                <input type="text" id="regName" placeholder="Full name" class="register-input">
+                <input type="tel" id="regPhone" placeholder="Phone number (e.g. 0778727290)" class="register-input">
+                <input type="email" id="regEmail" placeholder="Email address" class="register-input">
+                <input type="password" id="regPassword" placeholder="Password" class="register-input">
+                <input type="password" id="regConfirmPassword" placeholder="Confirm password" class="register-input">
+                <button id="registerSubmitBtn" class="btn-register-submit"><i class="fas fa-check-circle"></i> Register</button>
+                <p style="margin-top:1rem; text-align:center; opacity:0.7;">A phone number can only be registered once</p>
+            </div>
+        </div>
+
+        <div class="footer-lux">
+            <i class="fas fa-shield-alt"></i> Investors Ultra · Uganda · 24h withdrawals · Min withdraw UGX 10,000
+        </div>
+    </div>
+
+    <!-- Bottom navigation -->
+    <div style="position:fixed; bottom:0; left:0; right:0; background:rgba(10,20,25,0.95); backdrop-filter: blur(20px); border-top:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-around; padding:0.8rem 0; z-index:999;">
+        <button class="navTabBtn" data-page="homePage" style="background:none; border:none; color:#f0d9a6; font-size:1.2rem;"><i class="fas fa-home"></i></button>
+        <button class="navTabBtn" data-page="investPage" style="background:none; border:none; color:#f0d9a6; font-size:1.2rem;"><i class="fas fa-laptop"></i></button>
+        <button class="navTabBtn" data-page="portfolioPage" style="background:none; border:none; color:#f0d9a6; font-size:1.2rem;"><i class="fas fa-briefcase"></i></button>
+        <button class="navTabBtn" data-page="depositPage" style="background:none; border:none; color:#f0d9a6; font-size:1.2rem;"><i class="fas fa-mobile"></i></button>
+        <button class="navTabBtn" data-page="referralPage" style="background:none; border:none; color:#f0d9a6; font-size:1.2rem;"><i class="fas fa-gift"></i></button>
+        <button class="navTabBtn" data-page="historyPage" style="background:none; border:none; color:#f0d9a6; font-size:1.2rem;"><i class="fas fa-history"></i></button>
+    </div>
+
+    <script>
+        (function() {
+            const laptops = [
+                { id: 1, name: "Refurbished ThinkPad", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1920&q=80", spec: "i5, 8GB, 128GB SSD", priceUGX: 5000, profitRate: 0.30, cycle: "1 month" },
+                { id: 2, name: "Lenovo IdeaPad 3", image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=1920&q=80", spec: "i3, 8GB, 256GB", priceUGX: 15000, profitRate: 0.25, cycle: "2 months" },
+                { id: 3, name: "HP Pavilion 15", image: "https://images.unsplash.com/photo-1585790050230-5dd28404ccb1?w=1920&q=80", spec: "i5, 8GB, 512GB", priceUGX: 25000, profitRate: 0.22, cycle: "3 months" },
+                { id: 4, name: "Acer Aspire 5", image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=1920&q=80", spec: "Ryzen 5, 8GB, 256GB", priceUGX: 40000, profitRate: 0.20, cycle: "4 months" },
+                { id: 5, name: "Samsung Galaxy Book3", image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1920&q=80", spec: "i5, 8GB, 256GB", priceUGX: 60000, profitRate: 0.18, cycle: "5 months" },
+                { id: 6, name: "Dell Latitude 3420", image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=1920&q=80", spec: "i5, 8GB, 512GB", priceUGX: 90000, profitRate: 0.17, cycle: "6 months" },
+                { id: 7, name: "HP EliteBook 840", image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=1920&q=80", spec: "i7, 16GB, 512GB", priceUGX: 120000, profitRate: 0.16, cycle: "7 months" },
+                { id: 8, name: "Lenovo ThinkPad T14", image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=1920&q=80", spec: "i7, 16GB, 512GB", priceUGX: 150000, profitRate: 0.15, cycle: "8 months" },
+                { id: 9, name: "Dell XPS 13", image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=1920&q=80", spec: "i7, 16GB, 1TB SSD", priceUGX: 200000, profitRate: 0.14, cycle: "9 months" }
+            ];
+
+            const MIN_WITHDRAW = 10000;
+            const WITHDRAW_FEE = 0.10;
+
+            let registeredUsers = [];
+            let currentUser = null;
+            let holdings = [];
+            let walletBalance = 0;
+            let totalDeposited = 0;
+            let dailyIncomeAccumulated = 0;
+
+            const homeLaptopGrid = document.getElementById('homeLaptopGrid');
+            const allLaptopGrid = document.getElementById('allLaptopGrid');
+            const holdingsList = document.getElementById('holdingsList');
+            const totalInvestDisplay = document.getElementById('totalInvestDisplay');
+            const projectedProfitEl = document.getElementById('projectedProfit');
+            const inviteLinkSpan = document.getElementById('inviteLink');
+            const copyInviteBtn = document.getElementById('copyInviteBtn');
+            const loginBtn = document.getElementById('loginBtn');
+            const registerBtn = document.getElementById('registerBtn');
+            const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+            const registerSubmitBtn = document.getElementById('registerSubmitBtn');
+            const loginPhone = document.getElementById('loginPhone');
+            const loginPassword = document.getElementById('loginPassword');
+            const regName = document.getElementById('regName');
+            const regPhone = document.getElementById('regPhone');
+            const regEmail = document.getElementById('regEmail');
+            const regPassword = document.getElementById('regPassword');
+            const regConfirmPassword = document.getElementById('regConfirmPassword');
+            const userChip = document.getElementById('userChip');
+            const userNameDisplay = document.getElementById('userNameDisplay');
+            const depositAmount = document.getElementById('depositAmount');
+            const depositSubmitBtn = document.getElementById('depositSubmitBtn');
+            const withdrawAmount = document.getElementById('withdrawAmount');
+            const withdrawSubmitBtn = document.getElementById('withdrawSubmitBtn');
+
+            const pages = document.querySelectorAll('.page');
+            const navTabBtns = document.querySelectorAll('.navTabBtn');
+
+            function showPage(pageId) {
+                pages.forEach(p => p.classList.remove('active'));
+                document.getElementById(pageId).classList.add('active');
+                window.scrollTo({top:0, behavior:'smooth'});
+            }
+
+            navTabBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => showPage(e.currentTarget.getAttribute('data-page')));
+            });
+
+            loginBtn.addEventListener('click', () => showPage('loginPage'));
+            registerBtn.addEventListener('click', () => showPage('registerPage'));
+
+            // REGISTRATION
+            registerSubmitBtn.addEventListener('click', () => {
+                const name = regName.value.trim();
+                const phone = regPhone.value.trim();
+                const email = regEmail.value.trim();
+                const password = regPassword.value;
+                const confirmPassword = regConfirmPassword.value;
+
+                if (!name || !phone || !email || !password || !confirmPassword) {
+                    alert('⚠️ Please fill in all fields.');
+                    return;
+                }
+                if (password !== confirmPassword) {
+                    alert('⚠️ Passwords do not match.');
+                    return;
+                }
+                const phoneExists = registeredUsers.some(u => u.phone === phone);
+                if (phoneExists) {
+                    alert('⚠️ This phone number is already registered. Please login instead.');
+                    return;
+                }
+                const newUser = { 
+                    name, phone, email, password, 
+                    balance: 0, 
+                    totalDeposited: 0, 
+                    holdings: [], 
+                    dailyIncome: 0,
+                    registeredAt: new Date().toISOString()
+                };
+                registeredUsers.push(newUser);
+                currentUser = newUser;
+                walletBalance = 0;
+                totalDeposited = 0;
+                holdings = [];
+                dailyIncomeAccumulated = 0;
+                userNameDisplay.textContent = name;
+                userChip.style.display = 'flex';
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'none';
+                alert(`✅ Registration successful! Welcome ${name}.`);
+                regName.value = '';
+                regPhone.value = '';
+                regEmail.value = '';
+                regPassword.value = '';
+                regConfirmPassword.value = '';
+                updateBalanceDisplay();
+                showPage('homePage');
+            });
+
+            // LOGIN
+            loginSubmitBtn.addEventListener('click', () => {
+                const phone = loginPhone.value.trim();
+                const password = loginPassword.value;
+
+                const user = registeredUsers.find(u => u.phone === phone && u.password === password);
+                if (!user) {
+                    alert('⚠️ Invalid phone number or password. Please register if you don\'t have an account.');
+                    return;
+                }
+                currentUser = user;
+                walletBalance = user.balance;
+                totalDeposited = user.totalDeposited;
+                holdings = user.holdings;
+                dailyIncomeAccumulated = user.dailyIncome;
+                userNameDisplay.textContent = user.name;
+                userChip.style.display = 'flex';
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'none';
+                alert(`✅ Logged in as ${user.name}. Welcome back!`);
+                loginPhone.value = '';
+                loginPassword.value = '';
+                updateBalanceDisplay();
+                updatePortfolio();
+                showPage('homePage');
+            });
+
+            // DEPOSIT
+            depositSubmitBtn.addEventListener('click', () => {
+                if (!currentUser) {
+                    alert('⚠️ Please register or login first to deposit funds.');
+                    showPage('registerPage');
+                    return;
+                }
+                const amount = parseFloat(depositAmount.value);
+                if (!amount || amount <= 0) {
+                    alert('⚠️ Please enter a valid deposit amount.');
+                    return;
+                }
+                walletBalance += amount;
+                totalDeposited += amount;
+                currentUser.balance = walletBalance;
+                currentUser.totalDeposited = totalDeposited;
+                depositAmount.value = '';
+                alert(`✅ Deposit of UGX ${amount.toLocaleString()} recorded. Balance: UGX ${walletBalance.toLocaleString()}`);
+                updateBalanceDisplay();
+                showPage('homePage');
+            });
+
+            // WITHDRAW
+            withdrawSubmitBtn.addEventListener('click', () => {
+                if (!currentUser) {
+                    alert('⚠️ Please register or login first to withdraw funds.');
+                    showPage('registerPage');
+                    return;
+                }
+                const amount = parseFloat(withdrawAmount.value);
+                if (!amount || amount <= 0) {
+                    alert('⚠️ Please enter a valid withdrawal amount.');
+                    return;
+                }
+                if (amount < MIN_WITHDRAW) {
+                    alert(`⚠️ Minimum withdrawal is UGX ${MIN_WITHDRAW.toLocaleString()}.`);
+                    return;
+                }
+                if (amount > walletBalance) {
+                    alert('⚠️ Insufficient balance for this withdrawal.');
+                    return;
+                }
+                const fee = amount * WITHDRAW_FEE;
+                const netAmount = amount - fee;
+                walletBalance -= amount;
+                currentUser.balance = walletBalance;
+                withdrawAmount.value = '';
+                alert(`✅ Withdrawal of UGX ${amount.toLocaleString()} initiated. Fee: UGX ${fee.toLocaleString()} (10%). Net: UGX ${netAmount.toLocaleString()}. Processing within 24 hours.`);
+                updateBalanceDisplay();
+                showPage('homePage');
+            });
+
+            function renderLaptopCard(laptop) {
+                return `
+                    <div class="laptop-card">
+                        <div class="laptop-image"><img src="${laptop.image}" alt="${laptop.name}" loading="lazy"></div>
+                        <div class="laptop-name">${laptop.name}</div>
+                        <div class="laptop-spec">${laptop.spec} · ${laptop.cycle}</div>
+                        <div class="price-start">UGX ${laptop.priceUGX.toLocaleString()}</div>
+                        <button class="btn-buy" data-id="${laptop.id}"><i class="fas fa-shopping-cart"></i> Buy now</button>
+                    </div>
+                `;
+            }
+
+            function renderAllLaptops() {
+                let homeHtml = '';
+                let allHtml = '';
+                laptops.forEach(l => {
+                    const card = renderLaptopCard(l);
+                    if (l.priceUGX <= 50000) homeHtml += card;
+                    allHtml += card;
+                });
+                homeLaptopGrid.innerHTML = homeHtml;
+                allLaptopGrid.innerHTML = allHtml;
+
+                document.querySelectorAll('.btn-buy').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = parseInt(e.currentTarget.getAttribute('data-id'));
+                        buyLaptop(id);
+                    });
+                });
+            }
+
+            function buyLaptop(laptopId) {
+                if (!currentUser) {
+                    alert('⚠️ Please register or login first to buy machines.');
+                    showPage('registerPage');
+                    return;
+                }
+                const laptop = laptops.find(l => l.id === laptopId);
+                if (!laptop) return;
+                if (walletBalance < laptop.priceUGX) {
+                    alert(`⚠️ Insufficient balance. Please deposit at least UGX ${laptop.priceUGX.toLocaleString()}.`);
+                    showPage('depositPage');
+                    return;
+                }
+                walletBalance -= laptop.priceUGX;
+                holdings.push({ ...laptop, date: new Date().toISOString() });
+                currentUser.balance = walletBalance;
+                currentUser.holdings = holdings;
+                updatePortfolio();
+                updateBalanceDisplay();
+                alert(`🎉 You bought ${laptop.name}! Check your portfolio.`);
+                showPage('portfolioPage');
+            }
+
+            function updatePortfolio() {
+                if (holdings.length === 0) {
+                    holdingsList.innerHTML = 'No purchases yet. Buy your first machine!';
+                    totalInvestDisplay.textContent = 'UGX 0';
+                    projectedProfitEl.textContent = 'UGX 0';
+                    return;
+                }
+                let totalInvested = 0, totalProjected = 0, html = '';
+                dailyIncomeAccumulated = 0;
+                holdings.forEach(h => {
+                    totalInvested += h.priceUGX;
+                    const profit = Math.round(h.priceUGX * h.profitRate);
+                    totalProjected += profit;
+                    const cycleDays = parseInt(h.cycle) * 30;
+                    const dailyIncome = profit / cycleDays;
+                    dailyIncomeAccumulated += dailyIncome;
+                    html += `
+                        <div class="holdings-item">
+                            <div style="display:flex; align-items:center; gap:1rem;">
+                                <img src="${h.image}" alt="${h.name}" style="width:50px; height:50px; object-fit:cover; border-radius:10px;">
+                                <div>
+                                    <strong>${h.name}</strong><br>
+                                    <small style="opacity:0.7;">${h.spec} · ${h.cycle} · ${Math.round(h.profitRate*100)}%</small>
+                                </div>
+                            </div>
+                            <div style="text-align:right;">
+                                <div>UGX ${h.priceUGX.toLocaleString()}</div>
+                                <span style="color:#f5b942;">+UGX ${profit.toLocaleString()}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+                holdingsList.innerHTML = html;
+                totalInvestDisplay.textContent = `UGX ${totalInvested.toLocaleString()}`;
+                projectedProfitEl.textContent = `UGX ${totalProjected.toLocaleString()}`;
+                currentUser.dailyIncome = dailyIncomeAccumulated;
+            }
+
+            function updateBalanceDisplay() {
+                const balanceAmount = document.getElementById('balanceAmount');
+                const dailyIncomeDisplay = document.getElementById('dailyIncomeDisplay');
+                const totalDepositedDisplay = document.getElementById('totalDepositedDisplay');
+                if (balanceAmount) balanceAmount.textContent = `UGX ${walletBalance.toLocaleString()}`;
+                if (dailyIncomeDisplay) dailyIncomeDisplay.textContent = `UGX ${Math.round(dailyIncomeAccumulated).toLocaleString()} / day`;
+                if (totalDepositedDisplay) totalDepositedDisplay.textContent = `UGX ${totalDeposited.toLocaleString()}`;
+            }
+
+            copyInviteBtn.addEventListener('click', () => navigator.clipboard.writeText(inviteLinkSpan.innerText).then(() => alert('🔗 Link copied!')));
+
+            function init() {
+                renderAllLaptops();
+                updatePortfolio();
+                inviteLinkSpan.innerText = 'https://investorsultra.ug/ref/U-9X2K';
+                const homePage = document.getElementById('homePage');
+                const balanceCard = document.createElement('div');
+                balanceCard.className = 'balance-card';
+                balanceCard.innerHTML = `
+                    <div style="font-size:1.2rem; font-weight:600;">💰 Available balance</div>
+                    <div class="balance-amount" id="balanceAmount">UGX 0</div>
+                    <div style="margin-top:0.5rem; font-size:0.9rem; opacity:0.8;">Total deposited: <span id="totalDepositedDisplay">UGX 0</span></div>
+                    <div class="daily-income">
+                        <span style="font-weight:600;">📈 Daily income:</span> 
+                        <span id="dailyIncomeDisplay" style="font-weight:800;">UGX 0 / day</span>
+                    </div>
+                    <button id="depositBtn" style="background:#0b1f2a; color:#f5b942; border:none; padding:0.8rem 1.5rem; border-radius:60px; font-weight:800; margin-top:1rem; cursor:pointer;"><i class="fas fa-plus"></i> Deposit funds</button>
+                `;
+                homePage.insertBefore(balanceCard, homePage.querySelector('.page-title'));
+                document.getElementById('depositBtn').addEventListener('click', () => showPage('depositPage'));
+                updateBalanceDisplay();
+            }
+            init();
+        })();
+    </script>
+</body>
+</html>
